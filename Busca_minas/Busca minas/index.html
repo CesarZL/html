@@ -1,0 +1,70 @@
+<html>
+<head>
+  <title>Buscaminas</title>
+  <meta property="og:title" content="Buscaminas">
+  <link rel="stylesheet" href="src/styles.css"></link>
+  <script type="text/javascript" src="src/game.js"></script>
+</head>
+<body unselectable="on">
+  <div>
+    <div class="gameCanvas">
+      <canvas id="gameController"></canvas>
+      <div class="gameBar" id="gameBar">
+        <div class="gameCell">
+          <div id="gameMines"></div>
+        </div>
+        <div class="gameCell">
+          <button class="resetButton" id="gameEmote" type="button" onclick="resetGame()" ></button>
+        </div>
+        <div class="gameCell">
+          <div id="gameTimer"></div>
+        </div>
+      </div>
+    </div>
+    <div class="gameSettings" id="gameSettings">
+      <p class="gameSettingsLinks">Dificultad
+        <br />
+        <a href="javascript:setDifficulty('beginner')">Principiante</a>
+        <br />
+        <a href="javascript:setDifficulty('intermediate')">Intermedio</a>
+        <br />
+        <a href="javascript:setDifficulty('advanced')">Avanzado</a>
+        <br />
+        <a href="javascript:openModal()">Juego Personalizado</a>
+      </p>
+      <p class="gameSettingsLinks">Tamaño de la fuente
+        <br />
+        <a href="javascript:setTextOffsets('small')">Pequeño</a>
+        <br />
+        <a href="javascript:setTextOffsets('medium')">Mediano</a>
+      </p>
+    </div>
+  </div>
+  <div class="gameFooter">
+    <p id="howToPlay">
+      <b>Objetivo: </b> Descubrir todas las casillas que no tengan bombas <br />
+      <b>Como se juega: </b> Haz clic con el botón izquierdo para descubrir las casillas, haz clic con el botón derecho para marcar mosaicos como inseguro (O) o si no sabes que hay (?).<br />
+      Haz clic en la casilla equivocada y se acaba el juego.
+    </p>
+  </div>
+
+  <div id="customGameModal" class="modal">
+    <div class="modal-content">
+      <h4>Juego personalizado</h4>
+      <span>
+        <label for="customGameWidth">Ancho:</label>
+        <input type="text" id="customGameWidth">
+        <label for="customGameHeight">Alto:</label>
+        <input type="text" id="customGameHeight">
+        <label for="customGameMines">Minas:</label>
+        <input type="text" id="customGameMines">
+      </span>
+      <div class="modal-buttons">
+        <button id="closeModal" type="button" onclick="closeModal()">Cerrar</button>
+        <button id="applyCustomGame" type="button" onclick="applyCustomGame()">Aplicar</button>
+      </div>
+      <p id="modal-msg"></p>
+    </div>
+  </div>
+</body>
+</html>
